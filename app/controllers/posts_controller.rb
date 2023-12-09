@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_meta, only: %i[ show ]
 
   # GET /posts or /posts.json
   def index
@@ -65,6 +66,12 @@ class PostsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path
       # render file: "#{Rails.root}/public/404.html", status: :not_found
+    end
+
+    def set_meta
+      @meta = {
+        title: @post.title
+      }
     end
 
     # Only allow a list of trusted parameters through.
