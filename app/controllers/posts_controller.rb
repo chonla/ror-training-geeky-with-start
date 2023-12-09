@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.eager_load(:writer).all
+    @posts = Post.eager_load(:writer, :tags).all
   end
 
   # GET /posts/1 or /posts/1.json
@@ -61,10 +61,14 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
+      # render file: "#{Rails.root}/public/404.html", status: :not_found
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :writer_id)
+      # Strong parameters
+      params.require(:post).permit(:title, :body, :writer_id, :tags_string)
     end
 end

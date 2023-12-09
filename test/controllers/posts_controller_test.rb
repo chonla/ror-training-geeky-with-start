@@ -28,6 +28,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should redirect to homepage if post not found" do
+    # 1111 is invalid post id
+    get post_url(1111)
+
+    assert_redirected_to root_url
+  end
+
   test "should get edit" do
     get edit_post_url(@post)
     assert_response :success
