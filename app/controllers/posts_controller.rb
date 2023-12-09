@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.eager_load(:writer, :tags)
+      .where("title LIKE '%#{params[:q]}%'")
       .order(created_at: :desc)
       .page(params[:page])
       .per(NUMBER_PER_PAGE)
