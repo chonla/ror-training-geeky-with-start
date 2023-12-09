@@ -35,9 +35,9 @@ class Post < ApplicationRecord
   #   self.title = "Saved: #{title}"
   # end
 
-  def initialize(params={})
-    super()
-  end
+  # def initialize(params={})
+  #   super()
+  # end
 
   def writer_name
     writer.name
