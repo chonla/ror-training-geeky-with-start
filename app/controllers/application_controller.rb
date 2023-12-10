@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
     before_action :skip_cookies, if: :not_signed_in?
+    before_action :sleep3
 
     def skip_cookies
         request.session_options[:skip] = true
@@ -8,5 +9,9 @@ class ApplicationController < ActionController::Base
 
     def not_signed_in?
         session[:current_user_id].nil?
+    end
+
+    def sleep3
+        sleep 3
     end
 end

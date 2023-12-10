@@ -16,6 +16,8 @@
   <%= form.submit "Search" %>
 <% end %>
 
+<%= turbo_stream_from "posts_list" %>
+
 <div id="posts">
   <table>
     <thead>

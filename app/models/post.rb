@@ -39,6 +39,19 @@ class Post < ApplicationRecord
   #   super()
   # end
 
+  after_create_commit :broadcast_prepend_to_post
+
+  def broadcast_prepend_to_post
+    broadcast_prepend_to(
+      "posts_list",
+      partial: "posts/post_row",
+      locals: {
+        post: self
+      },
+      target: "posts_result"
+    )
+  end
+
   def writer_name
     writer.name
   end
