@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   # resources :posts # RESTful enabling all
   resources :posts, only: [:index, :show]
 
+  namespace :api do
+    namespace :v1 do
+      resources :posts, only: [:create]
+      # get 'posts/create'
+    end
+  end
   
   root "posts#index"
 end
