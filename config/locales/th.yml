@@ -1,0 +1,10 @@
+th:
+    hello: "สวัสดี"
+    post:
+        title: "ยะฮู้"
+    datetime:
+        distance_in_words:
+            about_x_hours:
+                one: 'หนึ่งชั่วโมง'
+                other: '%{count} ชั่วโมง'
+            x_days: '%{count} วัน'

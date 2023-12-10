@@ -29,11 +29,22 @@
       </tr>
     </thead>
     <tbody id="posts_result">
-  <% @posts.each do |post| %>
-    <%= turbo_frame_tag "edit_post_#{post.id}" do %>
-      <%= render "posts/post_row", post: post %>
+    <% Rails.cache.fetch("posts_list_#{@posts.first}, expires_in: 10.minutes") do %>
+      <% @posts.each do |post| %>
+        <%= turbo_frame_tag "edit_post_#{post.id}" do %>
+          <%= render "posts/post_row", post: post %>
+        <% end %>
+      <% end %>
+
+      <%# cache post do %>
+        <%#= turbo_frame_tag "edit_post_#{post.id}" do %>
+          <%#= render "posts/post_row", post: post %>
+        <%# end %>
+      <%# end %>
+
     <% end %>
-  <% end %>
+
+    <%# render partial: "posts/post_row", collection: @posts, cache:true %>
     </tbody>
   </table>
 </div>

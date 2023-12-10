@@ -72,6 +72,8 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+
+      # if stale?(@post)
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path
       # render file: "#{Rails.root}/public/404.html", status: :not_found

@@ -29,3 +29,5 @@
 
 en:
   hello: "Hello world"
+  post:
+    title: "Yahoo"

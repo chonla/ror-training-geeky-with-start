@@ -6,9 +6,16 @@
   <%= render "layouts/partials/meta", meta: @meta %>
 <% end %>
 
+<%= I18n.t "post.title" %>
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<%# Fragment caching %>
+<% cache @post do %>
+  <%= render @post %>
+<% end %>
+
+ <%# cache_if admin?, @post do %>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
