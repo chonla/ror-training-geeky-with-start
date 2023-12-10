@@ -26,5 +26,7 @@ module Geeky
     config.time_zone = "Asia/Bangkok"
     config.i18n.available_locales = [:th, :en]
     config.i18n.default_locale = :th
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

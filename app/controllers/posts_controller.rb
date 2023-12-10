@@ -15,6 +15,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    # PostView.create(post_id: @post.id)
+    # change to job trigger
+
+    CreatePostViewsJob.perform_later(post_id: @post.id)
   end
 
   # GET /posts/new

@@ -70,3 +70,5 @@ end
 gem "sassc-rails"
 gem "kaminari", "~> 1.2"
 
+
+gem "sidekiq", "~> 7.2"
