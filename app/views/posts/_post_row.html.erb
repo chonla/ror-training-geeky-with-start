@@ -9,6 +9,7 @@
         <%= post.created_at %>
     </td>
     <td>
-        <%= button_to "Destroy this post", post, method: :delete %>
+        <%= link_to "Edit", edit_post_path(post), class: "button", data: { turbo_frame: "edit_post_#{post.id}"} %>
+        <%= button_to "Destroy", post, method: :delete, data: {turbo_confirm: "You sure?"} %>
     </td>
 </tr>
