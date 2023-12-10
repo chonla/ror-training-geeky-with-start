@@ -65,6 +65,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  gem "vcr", "~> 6.2"
+  gem "webmock", "~> 3.19"  
 end
 
 gem "sassc-rails"
@@ -72,3 +75,5 @@ gem "kaminari", "~> 1.2"
 
 
 gem "sidekiq", "~> 7.2"
+
+gem "httparty", "~> 0.21.0"
