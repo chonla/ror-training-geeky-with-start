@@ -2,7 +2,10 @@
 
 <h1>Posts</h1>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class: "button", data: {turbo_frame: "new_post"} %>
+
+<%= turbo_frame_tag 'new_post' do %>
+<% end %>
 
 <%= paginate @posts, views_prefix: :posts %>
 
@@ -21,7 +24,7 @@
         <th>actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="posts_result">
   <% @posts.each do |post| %>
     <%= render "posts/post_row", post: post %>
   <% end %>
