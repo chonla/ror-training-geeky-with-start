@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import url("https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css");
 body {
     & > h1 {
         color: blue;
